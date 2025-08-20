@@ -1,3 +1,4 @@
+import type { IVisitor } from "../../pages/app/Dashboard/interface";
 import { ButtonCustom } from "../ButtonCustom";
 import { InputCustom } from "../Input";
 import {
@@ -11,10 +12,7 @@ import {
 } from "./styled";
 
 interface RoomCardProps {
-  visitors: {
-    nome: string;
-    cpf: string;
-  }[];
+  visitors: IVisitor[];
 }
 
 export function RoomCard({ visitors }: RoomCardProps) {
@@ -35,9 +33,9 @@ export function RoomCard({ visitors }: RoomCardProps) {
         <ButtonCustom>Entrar na Sala</ButtonCustom>
       </CardForm>
       <CardContent>
-        {visitors.map((visitor, i) => (
-          <CardList key={i}>
-            <div>{visitor.nome}</div>
+        {visitors.map((visitor) => (
+          <CardList key={visitor.id}>
+            <div>{visitor.name}</div>
           </CardList>
         ))}
       </CardContent>

@@ -9,19 +9,34 @@ import {
 import { RoomCard } from "../../../components/RoomCard";
 import { useNavigate } from "react-router";
 import { ButtonCustom } from "../../../components/ButtonCustom";
-
-const visitantes = [
-  { nome: "João Silva", cpf: "123.456.789-00" },
-  { nome: "Maria Souza", cpf: "987.654.321-00" },
-  { nome: "Pedro Santos", cpf: "111.222.333-44" },
-];
+import { api } from "../../../services/api";
+import { useEffect, useState } from "react";
+import type { IVisitor } from "./interface";
 
 export function Dashboard() {
   const navigate = useNavigate();
 
+  const [visitors, setVisitors] = useState<IVisitor[]>([]);
+  const [loading, setLoading] = useState(true);
+
   function handleChangePage() {
     navigate("/cadastro");
   }
+
+  async function getVisitors() {
+    try {
+      const response = await api.get<IVisitor[]>("/visitors");
+      setVisitors(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar visitantes", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getVisitors();
+  }, []);
 
   return (
     <>
@@ -41,14 +56,18 @@ export function Dashboard() {
           <div>CPF</div>
         </Header>
 
-        {visitantes.map((visitor, i) => (
-          <Row key={i}>
-            <div>{visitor.nome}</div>
-            <div>{visitor.cpf}</div>
-          </Row>
-        ))}
+        {loading ? (
+          <div>Carregando visitantes...</div>
+        ) : (
+          visitors.map((visitor) => (
+            <Row key={visitor.id}>
+              <div>{visitor.name}</div>
+              <div>{visitor.cpf}</div>
+            </Row>
+          ))
+        )}
       </VisitorsList>
-      <RoomCard visitors={visitantes} />
+      <RoomCard visitors={visitors} />
     </>
   );
 }
