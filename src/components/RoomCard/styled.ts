@@ -46,7 +46,7 @@ export const ActiveCount = styled.div`
   font-size: 0.9rem;
 `;
 
-export const CardForm = styled.div`
+export const CardForm = styled.form`
   display: flex;
   gap: 1rem;
   align-items: center;

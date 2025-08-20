@@ -17,6 +17,18 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   gap: 0.5rem;
 
+  &:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &:disabled:hover {
+    background-color: #ccc;
+    filter: none;
+  }
+
   ${({ variant }) => {
     switch (variant) {
       case "secondary":
@@ -24,11 +36,11 @@ export const Button = styled.button<ButtonProps>`
           background-color: #e0e0e0;
           color: #333333;
 
-          &:hover {
+          &:hover:not(:disabled) {
             background-color: #d5d5d5;
           }
 
-          &:active {
+          &:active:not(:disabled) {
             background-color: #bdbdbd;
           }
         `;
@@ -37,11 +49,11 @@ export const Button = styled.button<ButtonProps>`
           background-color: #d9534f;
           color: white;
 
-          &:hover {
+          &:hover:not(:disabled) {
             background-color: #c9302c;
           }
 
-          &:active {
+          &:active:not(:disabled) {
             background-color: #a71d2a;
           }
         `;
@@ -50,11 +62,11 @@ export const Button = styled.button<ButtonProps>`
           background-color: #0b615e;
           color: white;
 
-          &:hover {
+          &:hover:not(:disabled) {
             background-color: #137f7b;
           }
 
-          &:active {
+          &:active:not(:disabled) {
             background-color: #06423f;
           }
         `;
