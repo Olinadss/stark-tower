@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import { Dashboard } from "../pages/app/Dashboard";
 import { SignIn } from "../pages/auth/sign-in";
-import { AppLayout } from "../pages/app/_layouts/app";
 import { AuthLayout } from "../pages/app/_layouts/auth";
+import { AppLayout } from "../pages/app/_layouts/app";
+import { RegisterVisitors } from "../pages/app/RegisterVisitors";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Dashboard />,
+      },
+      {
+        path: "/cadastro",
+        element: <RegisterVisitors />,
       },
     ],
   },
