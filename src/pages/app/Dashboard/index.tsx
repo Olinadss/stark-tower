@@ -1,6 +1,5 @@
 import { Plus } from "lucide-react";
 import {
-  ButtonCustom,
   ContentBanner,
   ContentWelcome,
   Header,
@@ -8,6 +7,8 @@ import {
   Row,
 } from "./styles";
 import { RoomCard } from "../../../components/RoomCard";
+import { useNavigate } from "react-router";
+import { ButtonCustom } from "../../../components/ButtonCustom";
 
 const visitantes = [
   { nome: "João Silva", cpf: "123.456.789-00" },
@@ -16,12 +17,18 @@ const visitantes = [
 ];
 
 export function Dashboard() {
+  const navigate = useNavigate();
+
+  function handleChangePage() {
+    navigate("/cadastro");
+  }
+
   return (
     <>
       <ContentBanner>
         <ContentWelcome>
           <span>Bem vindo de volta, as Industrias Stark</span>
-          <ButtonCustom>
+          <ButtonCustom onClick={handleChangePage}>
             <Plus />
             Criar visitante
           </ButtonCustom>
@@ -34,10 +41,10 @@ export function Dashboard() {
           <div>CPF</div>
         </Header>
 
-        {visitantes.map((v, i) => (
+        {visitantes.map((visitor, i) => (
           <Row key={i}>
-            <div>{v.nome}</div>
-            <div>{v.cpf}</div>
+            <div>{visitor.nome}</div>
+            <div>{visitor.cpf}</div>
           </Row>
         ))}
       </VisitorsList>

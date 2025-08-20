@@ -1,8 +1,10 @@
+import { ButtonCustom } from "../ButtonCustom";
+import { InputCustom } from "../Input";
 import {
   ActiveCount,
   Card,
-  CardButton,
   CardContent,
+  CardForm,
   CardHeader,
   CardList,
   CardTitle,
@@ -26,8 +28,12 @@ export function RoomCard({ visitors }: RoomCardProps) {
         <ActiveCount>
           {displayCount}/{maxActive}
         </ActiveCount>
-        <CardButton>Entrar na Sala</CardButton>
       </CardHeader>
+      <CardForm>
+        <InputCustom placeholder="Nome" />
+        <InputCustom placeholder="CPF" />
+        <ButtonCustom>Entrar na Sala</ButtonCustom>
+      </CardForm>
       <CardContent>
         {visitors.map((visitor, i) => (
           <CardList key={i}>

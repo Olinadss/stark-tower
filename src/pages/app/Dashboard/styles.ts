@@ -19,29 +19,6 @@ export const ContentWelcome = styled.div`
   gap: 2rem;
 `;
 
-export const ButtonCustom = styled.button`
-  background-color: #0b615e;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-
-  &:hover {
-    background-color: #137f7b;
-  }
-
-  &:active {
-    background-color: #06423f;
-  }
-`;
-
 export const VisitorsList = styled.section`
   margin-top: 2rem;
   display: grid;
