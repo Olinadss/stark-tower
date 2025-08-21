@@ -8,13 +8,6 @@
       "birthDate": ""
     },
     {
-      "id": "ee93",
-      "name": "Gavião Arqueiro Filho teste",
-      "cpf": "55353535353",
-      "email": "teste7@teste.com",
-      "birthDate": ""
-    },
-    {
       "id": "851f",
       "name": "Thor",
       "cpf": "55353535353",
@@ -29,21 +22,28 @@
       "birthDate": ""
     }
   ],
-  "rooms": [
+  "rooms": [],
+  "logs": [
     {
-      "id": "ce56",
-      "name": "Gavião Arqueiro",
-      "cpf": "77777777777"
+      "id": "55c5",
+      "name": "Thor",
+      "cpf": "55353535353",
+      "entry": "2025-08-20T23:52:40.522Z",
+      "exit": "2025-08-21T00:12:11.360Z"
     },
     {
-      "id": "384f",
-      "name": "Gavião Arqueiro Filho teste",
-      "cpf": "55353535353"
-    },
-    {
-      "id": "5e92",
+      "id": "997b",
       "name": "Homem Aranha",
-      "cpf": "12154678789"
+      "cpf": "12154678789",
+      "entry": "2025-08-21T00:13:08.784Z",
+      "exit": "2025-08-21T00:13:21.785Z"
+    },
+    {
+      "id": "4e2e",
+      "name": "Thor",
+      "cpf": "55353535353",
+      "entry": "2025-08-21T00:17:22.172Z",
+      "exit": "2025-08-21T00:17:29.330Z"
     }
   ]
 }
