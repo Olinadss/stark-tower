@@ -1,6 +1,7 @@
-import { Outlet } from "react-router";
+import { Outlet, Navigate } from "react-router";
 import { Header } from "../../../components/Header";
 import styled from "styled-components";
+import { getCurrentUser } from "../../../utils/login";
 
 export const Container = styled.div`
   display: flex;
@@ -11,10 +12,17 @@ export const Container = styled.div`
 `;
 
 export function AppLayout() {
+  const user = getCurrentUser();
+  if (!user) {
+    return <Navigate to="/sign-in" replace />;
+  }
+
   return (
     <Container>
       <Header />
-      <main>{<Outlet />}</main>
+      <main>
+        <Outlet />
+      </main>
     </Container>
   );
 }

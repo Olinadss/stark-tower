@@ -8,7 +8,7 @@ export const Card = styled.section`
   width: 920px;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   gap: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 `;
@@ -34,6 +34,8 @@ export const CardTitle = styled.h2`
 
 export const CardList = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
 `;
 

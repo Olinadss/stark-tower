@@ -19,8 +19,8 @@ export function Dashboard() {
   const [visitors, setVisitors] = useState<IVisitor[]>([]);
   const [loading, setLoading] = useState(true);
 
-  function handleChangePage() {
-    navigate("/cadastro");
+  function handleChangePage(route: string) {
+    navigate(route);
   }
 
   async function getVisitors() {
@@ -43,12 +43,14 @@ export function Dashboard() {
       <ContentBanner>
         <ContentWelcome>
           <span>Bem vindo de volta, as Industrias Stark</span>
-          <ButtonCustom onClick={handleChangePage}>
+          <ButtonCustom onClick={() => handleChangePage("/cadastro")}>
             <Plus />
             Criar visitante
           </ButtonCustom>
         </ContentWelcome>
-        <ButtonCustom>Histórico</ButtonCustom>
+        <ButtonCustom onClick={() => handleChangePage("/historico")}>
+          Histórico
+        </ButtonCustom>
       </ContentBanner>
       <VisitorsList>
         <Header>
