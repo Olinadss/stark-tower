@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
   },
 
   {
-    path: "/sign-in",
+    path: "/",
     element: <AuthLayout />,
     children: [
       {

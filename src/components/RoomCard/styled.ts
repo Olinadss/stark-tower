@@ -8,7 +8,7 @@ export const Card = styled.section`
   width: 920px;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   gap: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 `;
