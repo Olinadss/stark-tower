@@ -34,6 +34,8 @@ export const CardTitle = styled.h2`
 
 export const CardList = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
 `;
 

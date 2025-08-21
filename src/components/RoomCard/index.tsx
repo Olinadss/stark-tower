@@ -20,6 +20,7 @@ import { api } from "../../services/api";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { registerEntry, registerExit } from "../../utils/registerLogs";
 
 interface RoomCardProps {
   visitors: IVisitor[];
@@ -66,6 +67,8 @@ export function RoomCard({ visitors }: RoomCardProps) {
 
       getActiveVisitors();
 
+      await registerEntry(visitor.name, visitor.cpf);
+
       if (response.data) {
         toast.success("Visitante adicionado à sala com sucesso!");
         handleChangePage();
@@ -85,6 +88,26 @@ export function RoomCard({ visitors }: RoomCardProps) {
     } finally {
       setLoading(false);
     }
+  }
+
+  function handleDeleteVisitor(id: string) {
+    api
+      .delete(`/rooms/${id}`)
+      .then(() => {
+        setActiveVisitors((prev) =>
+          prev.filter((visitor) => visitor.id !== id)
+        );
+        toast.success("Visitante removido da sala com sucesso!");
+      })
+      .catch((error) => {
+        console.error("Erro ao remover visitante", error);
+        toast.error("Erro ao remover visitante da sala!");
+      });
+  }
+
+  function handleExitRoom(visitor: IVisitor) {
+    handleDeleteVisitor(visitor.id);
+    registerExit(visitor.cpf);
   }
 
   useEffect(() => {
@@ -124,6 +147,12 @@ export function RoomCard({ visitors }: RoomCardProps) {
           activeVisitors.map((visitor) => (
             <CardList key={visitor.id}>
               <div>{visitor.name}</div>
+              <ButtonCustom
+                onClick={() => handleExitRoom(visitor)}
+                variant="danger"
+              >
+                Sair
+              </ButtonCustom>
             </CardList>
           ))
         )}

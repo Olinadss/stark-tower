@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { Dashboard } from "../pages/app/Dashboard";
+import { History } from "../pages/app/History";
 import { SignIn } from "../pages/auth/sign-in";
 import { AuthLayout } from "../pages/app/_layouts/auth";
 import { AppLayout } from "../pages/app/_layouts/app";
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: "/cadastro",
         element: <RegisterVisitors />,
+      },
+      {
+        path: "/historico",
+        element: <History />,
       },
     ],
   },
